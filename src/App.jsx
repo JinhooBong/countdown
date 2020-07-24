@@ -22,23 +22,28 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <div>
-                    <p>Time left until</p>
-                    <p className="App-title">{this.state.deadline}</p>
-                </div>
-                <Clock 
-                    deadline={this.state.deadline}
-                />
-                <Form inline>
-                    <FormControl 
-                        className="Deadline-input"
-                        placeholder='new date'
-                        onChange={event => this.setState({newDeadline: event.target.value})}
+                <div className="App-inside">
+                    <div>
+                        <p>Time left until</p>
+                        <p className="App-title">{this.state.deadline}</p>
+                        <div className="circle-box">
+                            <p className="circle-image"></p>
+                        </div>
+                    </div>
+                    <Clock 
+                        deadline={this.state.deadline}
                     />
-                    {/* always want to use anonymous function because if we call this.changeDeadline directly, it will cause loops */}
-                    <Button onClick={() => this.changeDeadline()}>
-                    Submit</Button>
-                </Form>
+                    <Form inline>
+                        <FormControl 
+                            className="Deadline-input"
+                            placeholder='new date'
+                            onChange={event => this.setState({newDeadline: event.target.value})}
+                        />
+                        {/* always want to use anonymous function because if we call this.changeDeadline directly, it will cause loops */}
+                        <Button onClick={() => this.changeDeadline()}>
+                        Submit</Button>
+                    </Form>
+                </div>
             </div>
         )
     }

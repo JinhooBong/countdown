@@ -1,27 +1,102 @@
+@font-face {
+    font-family: 'Barlow_light';
+    src: url('../src/Assets/Barlow_Condensed/BarlowCondensed-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'Barlow_bold';
+    src: url('../src/Assets/Barlow_Condensed/BarlowCondensed-Bold.ttf');
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
 .App {
     background-color: #343334;
     height: 100vh;
     width: 100vw;
     text-align: center;
-    font-size: 35px;
+    font-size: 25px;
     padding-top: 20%;
     color: #EFDAB9;
+    font-family: 'Barlow_light';
+    text-transform: uppercase;
+}
+
+.App-inside {
+    z-index: 1;
+    position: relative;
 }
 
 .App-title {
-    font-size: 50px;
+    font-size: 5rem;
+    letter-spacing: 1rem;
+    position: relative;
+    z-index: 1;
+    font-family: 'Barlow_bold';
+}
+
+@media only screen and (max-width: 375px) {
+    .App-title {
+        font-size: 3rem;
+    }
+}
+
+.circle-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle-image {
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    z-index: -1;
+    background-image: url('../src/img/circle.png');
+    opacity: 0.1;
+    background-size: contain;
+    height: 450px;
+    width: 450px;
+    margin: auto;
+    animation: rotation 60s infinite linear;
 }
 
 .Clock-days, .Clock-hours, .Clock-minutes, .Clock-seconds {
     display: inline;
     margin: 10px;
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+}
+
+@media only screen and (max-width: 375px) {
+    .Clock-days, .Clock-hours, .Clock-minutes, .Clock-seconds {
+        font-size: 1.5rem;
+    }
 }
 
 .Deadline-input {
-    font-size: 25px;
+    font-size: 1rem;
     margin: 5px;
 }
 
 .form-inline {
+    position: relative;
+    z-index: 2;
     justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-primary {
+    background-color: #FFD251;
+    border: 0px;
+    font-family: 'Barlow_light';
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
